@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Dettaglio studente</title>
+</head>
+<body>
+	<h1 th:text="'Dettaglio dello studente '+${studente.getId()}"></h1>
+	<h2 th:text="${studente.getNome()+ ' ' +studente.getCognome()}"></h2>
+</body>
+</html>
