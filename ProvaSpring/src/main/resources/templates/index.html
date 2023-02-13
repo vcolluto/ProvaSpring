@@ -3,8 +3,11 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Pagina di benvenuto</title>
+<div th:replace="~{fragments :: head}"></div>
 </head>
 <body>
+<div th:replace="~{fragments :: navbar('home')}"></div>
 <h1>Benvenuto nel mio sito web</h1>
+<div th:replace="~{fragments :: script}"></div>
 </body>
 </html>

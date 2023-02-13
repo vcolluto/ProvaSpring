@@ -1,6 +1,7 @@
 package com.corsojava.ProvaSpring.controller;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.corsojava.ProvaSpring.model.Corso;
+import com.corsojava.ProvaSpring.model.Studente;
 
 @Controller
 @RequestMapping("/studenti")				//gestisce tutte le richieste (GET, POST, PUT, DELETE) del tipo /studenti/*
@@ -40,8 +42,10 @@ public class StudentiController {
 	
 	@GetMapping() 		//gestisce le richieste di tipo GET del tipo /studenti	
 	public String index(Model model) {
-		model.addAttribute("studenti", corso.getElencoStudenti());
-	
+		ArrayList<Studente> elenco=corso.getElencoStudenti();
+		//elenco.clear();
+		model.addAttribute("studenti",elenco );
+		//model.addAttribute("studenti", new ArrayList<Studente>());
 		return "studenti";
 	}
 	

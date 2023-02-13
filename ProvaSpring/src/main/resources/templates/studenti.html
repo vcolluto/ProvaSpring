@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
-<title>Elenco studenti</title>
+
+<title th:text="#{students.list}"></title>
+<link rel="stylesheet" th:href="@{/css/application.css}">
+      
+ 	<div th:replace="~{fragments :: head}"></div>
 </head>
 <body>
-<h1>Elenco studenti</h1>
-<ul>
-	<li th:each="s:${studenti}">
-	<span th:text="${s.getNome()}+' '+${s.getCognome()}"></span>
+<div th:replace="~{fragments :: navbar('studenti')}"></div>
+<img alt="logo" th:src="@{/img/logo.png}">
+<h1 th:text="#{students.list}" class="verde"></h1>
+<p th:if="${studenti.size()==0}">Nessuno studente trovato</p>
+<ul th:if="${studenti.size()>0}" class="list-group">
+	<li th:each="s:${studenti}" th:with="nominativo=${s.getNome()}+' '+${s.getCognome()}" class="list-group-item">
+		<span th:text="${nominativo}"></span>
 	</li> 
 </ul>
 
+
+<div th:replace="~{fragments :: script}"></div>
 </body>
 </html>

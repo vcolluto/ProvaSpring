@@ -3,9 +3,12 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Dettaglio studente</title>
+<div th:replace="~{fragments :: head}"></div>
 </head>
 <body>
-	<h1 th:text="'Dettaglio dello studente '+${studente.getId()}"></h1>
-	<h2 th:text="${studente.getNome()+ ' ' +studente.getCognome()}"></h2>
+	<div th:replace="~{fragments :: navbar('studente')}"></div>
+	<h1 th:text="|Dettaglio dello studente ${studente.getId()}|"></h1>
+	<h2 th:text="|${studente.nome} ${studente.cognome}|"></h2>
+	<div th:replace="~{fragments :: script}"></div>
 </body>
 </html>
